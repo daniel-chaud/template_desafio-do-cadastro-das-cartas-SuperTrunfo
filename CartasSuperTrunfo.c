@@ -1,19 +1,14 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das cartas
-// Objetivo: No nível novato você deve criar as cartas representando as cidades utilizando scanf para entrada de dados e printf para exibir as informações.
-
-int main() {
-  
-  /*Aqui vamos definir as variáveis, que nada mais são que as caracterìsticas das cartas do
+/*Aqui vamos definir as variáveis, que nada mais são que as caracterìsticas das cartas do
 nosso jogo, lembrando que precisaremos criar cada uma delas referente ao número de cartas!
 
 obs: Se atente para as limitações dos campos que envolvem números grandes: 
 Área por Km² e População, de preferência nesta versão não escreva números com separadores de milhar...
 */
 
-char estado1[20],  estado2[20]; // As variáveis acompanham números ao final do nome, para sabermos de qual carta é
+int main() {
+char estado1[20],  estado2[20]; // As variáveis acompanham números junto, para sabermos de qual carta é
 char cidade1[20],  cidade2[20];
 char codcarta1[4], codcarta2[4];
 
@@ -22,6 +17,10 @@ int populacao1, populacao2;
 
 float area1, area2;
 float pib1, pib2;
+
+float densidade1, densidade2; // Aqui no desafio aventureiro, seguimos a mesma lógica dos números por carta
+float pibpercap1, pibpercap2;
+
 
 
 // ↑ Aqui conseguimos definir quais serão os "Tópicos" das cartas.
@@ -57,12 +56,14 @@ scanf("%s", codcarta1);
 
 // ↑ Aqui terminamos a captação de dados do usuário e vamos para o resumo da carta criada.↓
 
+densidade1 =  (float) (populacao1 / area1) ; //Além de criarmos as variáveis, também as definimos.
+pibpercap1 = (float) (pib1 / populacao1);
+
+
 printf("Muito bem, Carta criada com sucesso, abaixo o resumo da carta criada!\n");
 printf("\n");
 printf("\n");
 printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
-
-// Aqui apresentamos a carta criada, utilizando os dados que o usuário digitou.
 printf("\n");
 printf("%s\n", codcarta1);
 printf("Estado: %s\n", estado1);
@@ -71,7 +72,8 @@ printf("População: %d Habitantes\n", populacao1);
 printf("Área em Km²: %.2f Km²\n", area1);
 printf("PIB: %.2f Bilhões de Reais\n", pib1);
 printf("Número de Pontos Turísticos: %d Pontos Turísticos\n", pturisticos1);
-
+printf("Densidade Populacional: %.2f hab/km²\n", densidade1);
+printf("PIB per Capita: %.2f reais\n", pibpercap1);
 printf("\n");
 printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
 printf("\n");
@@ -107,6 +109,8 @@ scanf("%s", codcarta2);
 // ↑ Aqui terminamos a captação de dados do usuário e vamos para o resumo da carta criada.↓
 
 printf("Muito bem, Carta criada com sucesso, abaixo o resumo da carta criada!\n");
+densidade2 = (float) (populacao2 / area2) ; 
+pibpercap2 = (float) (pib2 / populacao2);
 printf("\n");
 printf("\n");
 
@@ -121,6 +125,8 @@ printf("População: %d Habitantes\n", populacao2);
 printf("Área em Km²: %.2f Km²\n", area2);
 printf("PIB: %.2f Bilhões de Reais\n", pib2);
 printf("Número de Pontos Turísticos: %d Pontos Turísticos\n", pturisticos2);
+printf("Densidade Populacional: %.2f hab/km²\n", densidade2);
+printf("PIB per Capita: %.2f reais\n", pibpercap2);
 printf("\n");
 
 printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
@@ -128,6 +134,7 @@ printf("\n");
 
 //Aqui decidi apresentar as 2 juntas, para o usuário ver o que acabou de criar.
 printf("Agora vou te mostrar as cartas criadas!↓↓↓\n");
+printf(" ");
 
 
 printf("\n");
@@ -144,6 +151,8 @@ printf("População: %d Habitantes\n", populacao1);
 printf("Área em Km²: %.2f Km²\n", area1);
 printf("PIB: %.2f Bilhões de Reais\n", pib1);
 printf("Número de Pontos Turísticos: %d Pontos Turísticos\n", pturisticos1);
+printf("Densidade Populacional: %.2f hab/km²\n", densidade1);
+printf("PIB per Capita: %.2f reais\n", pibpercap1);
 printf("\n");
 
 //Carta 2
@@ -156,11 +165,11 @@ printf("População: %d Habitantes\n", populacao2);
 printf("Área em Km²: %.2f Km²\n", area2);
 printf("PIB: %.2f Bilhões de Reais\n", pib2);
 printf("Número de Pontos Turísticos: %d Pontos Turísticos\n", pturisticos2);
+printf("Densidade Populacional: %.2f hab/km²\n", densidade2);
+printf("PIB per Capita: %.2f reais\n", pibpercap2);
 printf("\n");
 
 printf("/////////////////////////////////////////////////////////////////////////////////////////\n");
 printf("\n");
-printf("Parabéns, você criou suas primeiras cartas do Super Trunfo Cidades!\n");
-// Aqui finalizamos o desafio, onde o usuário conseguiu criar 2 cartas utilizando os dados que ele mesmo digitou, e depois apresentamos as cartas criadas para o usuário.
 return 0;
 }
